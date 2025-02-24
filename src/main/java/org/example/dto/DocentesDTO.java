@@ -11,23 +11,23 @@ public class DocentesDTO {
         return nombreDocente;
     }
 
-    public String getApellidoDocente() {
-        return apellidoDocente;
+    public void setNombreDocente(String nombreDocente) {
+        this.nombreDocente = nombreDocente;
     }
 
     public int getCursoImparte() {
         return cursoImparte;
     }
 
-    public void setNombreDocente(String nombreDocente) {
-        this.nombreDocente = nombreDocente;
+    public void setCursoImparte(int cursoImparte) {
+        this.cursoImparte = cursoImparte;
+    }
+
+    public String getApellidoDocente() {
+        return apellidoDocente;
     }
 
     public void setApellidoDocente(String apellidoDocente) {
         this.apellidoDocente = apellidoDocente;
-    }
-
-    public void setCursoImparte(int cursoImparte) {
-        this.cursoImparte = cursoImparte;
     }
 }

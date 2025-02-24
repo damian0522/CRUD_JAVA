@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +31,11 @@ public class DocentesController {
     @GetMapping("{idDocente}")
     public Optional<Docentes> getDocenteByIdDocente(@PathVariable("idDocente") int idDocente){
         return docenteServiceI.getDocenteByIdDocente(idDocente);
+    }
+
+    @GetMapping("buscar{nombreDocente}")
+    public Optional<Docentes> getDocenteByNombreDocente(@RequestParam("nombreDocente") String nombreDocente){
+        return docenteServiceI.getDocenteByNombreDocente(nombreDocente);
     }
 
     @PostMapping

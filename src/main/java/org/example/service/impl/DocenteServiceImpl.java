@@ -32,6 +32,9 @@ public class DocenteServiceImpl implements DocenteServiceI {
         return docentesRepository.findById(idDocente);
     }
 
+    public Optional<Docentes> getDocenteByNombreDocente(String nombreDocente){
+        return docentesRepository.getByNombreDocente(nombreDocente);
+    }
     @Override
     public Docentes saveDocente(DocentesDTO docentesDTO){
         Docentes docente = new Docentes();
