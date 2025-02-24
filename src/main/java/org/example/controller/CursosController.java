@@ -25,17 +25,17 @@ public class CursosController {
         return cursoServiceI.getAllCursos();
     }
 
-    @GetMapping("{idCurso}")
+    @GetMapping("buscar_por_curso/{idCurso}")
     public Optional<Cursos> getCursoByIdCurso(@PathVariable("idCurso") int idCurso){
         return cursoServiceI.getCursoByIDCurso(idCurso);
     }
 
-    @GetMapping("{precio}")
-    public Optional<Cursos> getCursoByPrecio(@RequestParam("precio") float precio ){
+    @GetMapping("buscar_por_precio{precio}")
+    public Optional<Cursos> getCursoByPrecio(@RequestParam("precio") double precio ){
         return cursoServiceI.getCursoByPrecio(precio);
     }
 
-    @GetMapping("buscar_entre_precios/")
+    @GetMapping("buscar_entre_precios")
     public ResponseEntity<List<Cursos>> getCursoByPrecioBetween(@RequestParam("precio_min") double precio_min, @RequestParam("precio_max") double precio_max ){
         List<Cursos> cursos = cursoServiceI.getCursoByPrecioBetween(precio_min, precio_max);
         return ResponseEntity.status(HttpStatus.OK).body(cursos);
@@ -48,13 +48,13 @@ public class CursosController {
         return ResponseEntity.status(HttpStatus.CREATED).body(curso);
     }
 
-    @PutMapping("{idCurso}")
+    @PutMapping("actualizar/{idCurso}")
     public ResponseEntity<Optional<Cursos>> updateCurso(@PathVariable("idCurso") int idCurso, @RequestBody CursosDTO cursosDTO){
         Optional<Cursos> curso = cursoServiceI.updateCurso(idCurso, cursosDTO);
         return ResponseEntity.status(HttpStatus.OK).body(curso);
     }
 
-    @DeleteMapping("{idCurso}")
+    @DeleteMapping("eliminar/{idCurso}")
     public ResponseEntity<Void> deleleteCurso(@PathVariable("idCurso") int idCurso){
         cursoServiceI.deleteCurso(idCurso);
         return ResponseEntity.status(HttpStatus.OK).build();

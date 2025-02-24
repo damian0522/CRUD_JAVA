@@ -33,13 +33,7 @@ public class CursoServiceImpl implements CursoServiceI {
 
     @Override
     public List<Cursos> getCursoByPrecioBetween(double precio_min, double precio_max){
-        System.out.println(precio_min);
-        System.out.println(precio_max);
-        int precio_minimo = (int) precio_min;
-        int precio_maximo = (int) precio_max;
-        System.out.println(precio_minimo);
-        System.out.println(precio_maximo);
-        return cursosRepository.getCursoByPrecioBetween(precio_minimo, precio_maximo);
+        return cursosRepository.getCursoByPrecioBetween((int) precio_min, (int) precio_max);
     }
 
     @Override

@@ -28,12 +28,12 @@ public class DocentesController {
         return docenteServiceI.getAllDocentes();
     }
 
-    @GetMapping("{idDocente}")
+    @GetMapping("buscar_por_id/{idDocente}")
     public Optional<Docentes> getDocenteByIdDocente(@PathVariable("idDocente") int idDocente){
         return docenteServiceI.getDocenteByIdDocente(idDocente);
     }
 
-    @GetMapping("buscar{nombreDocente}")
+    @GetMapping("buscar_por_docente{nombreDocente}")
     public Optional<Docentes> getDocenteByNombreDocente(@RequestParam("nombreDocente") String nombreDocente){
         return docenteServiceI.getDocenteByNombreDocente(nombreDocente);
     }
@@ -44,13 +44,13 @@ public class DocentesController {
         return ResponseEntity.status(HttpStatus.CREATED).body(docente);
     }
 
-    @PutMapping("{idDocente}")
+    @PutMapping("actualizar/{idDocente}")
     public ResponseEntity<Optional<Docentes>> updateDocente(@PathVariable("idDocente") int idDocente, @RequestBody DocentesDTO docentesDTO){
         Optional<Docentes> docente = docenteServiceI.updateDocente(idDocente, docentesDTO);
         return ResponseEntity.status(HttpStatus.OK).body(docente);
     }
 
-    @DeleteMapping("{idDocente}")
+    @DeleteMapping("eliminar/{idDocente}")
     public ResponseEntity<Void> deleleteDocente(@PathVariable("idDocente") int idDocente){
         docenteServiceI.deleteDocente(idDocente);
         return ResponseEntity.status(HttpStatus.OK).build();
