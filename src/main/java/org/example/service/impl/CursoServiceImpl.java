@@ -29,13 +29,29 @@ public class CursoServiceImpl implements CursoServiceI {
     }
 
     @Override
+    public Optional<Cursos> getCursoByPrecio(double precio) {return cursosRepository.getCursoByPrecio(precio);}
+
+    @Override
+    public List<Cursos> getCursoByPrecioBetween(double precio_min, double precio_max){
+        System.out.println(precio_min);
+        System.out.println(precio_max);
+        int precio_minimo = (int) precio_min;
+        int precio_maximo = (int) precio_max;
+        System.out.println(precio_minimo);
+        System.out.println(precio_maximo);
+        return cursosRepository.getCursoByPrecioBetween(precio_minimo, precio_maximo);
+    }
+
+    @Override
     public Cursos saveCurso(CursosDTO cursosDTO){
+        System.out.println(cursosDTO.getPrecio());
         Cursos curso = new Cursos();
         curso.setNombreCurso(cursosDTO.getNombreCurso());
         curso.setDescripcionCurso(cursosDTO.getDescripcionCurso());
         curso.setFechaInicio(cursosDTO.getFechaInicio());
         curso.setFechaFin(cursosDTO.getFechaFin());
         curso.setActivo(cursosDTO.isActivo());
+        curso.setprecio(cursosDTO.getPrecio());
 
         return cursosRepository.save(curso);
     }

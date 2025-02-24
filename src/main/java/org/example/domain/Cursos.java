@@ -33,6 +33,9 @@ public class Cursos {
     @Column(name = "activo")
     private boolean activo;
 
+    @Column(name = "precio")
+    private double precio;
+
     public int getIdCurso() {
         return idCurso;
     }
@@ -79,5 +82,13 @@ public class Cursos {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setprecio(double precio) {
+        this.precio = precio;
     }
 }

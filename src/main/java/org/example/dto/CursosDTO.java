@@ -8,6 +8,7 @@ public class CursosDTO {
     private Date fechaInicio;
     private Date fechaFin;
     private boolean activo;
+    private double precio;
 
     public CursosDTO() {}
 
@@ -49,5 +50,13 @@ public class CursosDTO {
 
     public void setActivo(boolean activo) {
         this.activo = activo;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 }

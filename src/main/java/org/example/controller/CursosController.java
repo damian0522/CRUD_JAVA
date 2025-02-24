@@ -30,6 +30,18 @@ public class CursosController {
         return cursoServiceI.getCursoByIDCurso(idCurso);
     }
 
+    @GetMapping("{precio}")
+    public Optional<Cursos> getCursoByPrecio(@RequestParam("precio") float precio ){
+        return cursoServiceI.getCursoByPrecio(precio);
+    }
+
+    @GetMapping("buscar_entre_precios/")
+    public ResponseEntity<List<Cursos>> getCursoByPrecioBetween(@RequestParam("precio_min") double precio_min, @RequestParam("precio_max") double precio_max ){
+        List<Cursos> cursos = cursoServiceI.getCursoByPrecioBetween(precio_min, precio_max);
+        return ResponseEntity.status(HttpStatus.OK).body(cursos);
+    }
+
+
     @PostMapping
     public ResponseEntity<Cursos> saveCurso(@RequestBody CursosDTO cursosDTO){
         Cursos curso = cursoServiceI.saveCurso(cursosDTO);

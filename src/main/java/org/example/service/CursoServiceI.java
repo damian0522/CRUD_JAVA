@@ -8,8 +8,10 @@ import java.util.Optional;
 
 public interface CursoServiceI {
     List<Cursos> getAllCursos();
-    Cursos saveCurso(CursosDTO cursosDTO);
     Optional<Cursos> getCursoByIDCurso(int idCurso);
+    Optional<Cursos> getCursoByPrecio(double precio);
+    List<Cursos> getCursoByPrecioBetween(double precio_min, double precio_max);
+    Cursos saveCurso(CursosDTO cursosDTO);
     Optional<Cursos> updateCurso(int idCurso, CursosDTO cursosDTO);
     void deleteCurso(int idCurso);
 }
